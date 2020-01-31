@@ -24,7 +24,7 @@
    - platform: template
      value_template: '{{ states("sensor.humidity") | int < 35 }}'
   action:
-    service: homeassistant.turn_on
+    service: switch.turn_on
     entity_id: switch.01200405ecfabc0f6151
 
 - id: turn_off_humidifier
@@ -38,5 +38,5 @@
     platform: template
     value_template: '{{ states("sensor.humidity") | int >= 40 }}'
   action:
-    service: homeassistant.turn_off
+    service: switch.turn_off
     entity_id: switch.01200405ecfabc0f6151
