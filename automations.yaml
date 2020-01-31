@@ -15,14 +15,14 @@
      - condition: time
        after: '08:15:00'
        before: '21:45:00'
-     - condition: template
-       value_template: '{{ states("sensor.humidity") | int < 40 }}'
+     # - condition: template
+     #   value_template: '{{ states("sensor.humidity") | int < 30 }}'
      - condition: state
        entity_id: switch.01200405ecfabc0f6151
        state: 'off'
   trigger:
-   - platform: time_pattern
-     minutes: '/10'
+   - platform: template
+     value_template: '{{ states("sensor.humidity") | int < 35 }}'
   action:
     service: homeassistant.turn_on
     entity_id: switch.01200405ecfabc0f6151
