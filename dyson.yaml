@@ -1,0 +1,29 @@
+toggle_power_dyson:
+        alias: Power Toggle Dyson
+        sequence:
+          - service: remote.send_command
+            data:
+              entity_id: remote.livingroom
+              command:
+                - PowerToggle
+              device: "DYSON"
+
+# power_off_dyson:
+#         alias: Power Off Dyson
+#         sequence:
+#           - service: remote.send_command
+#             data:
+#               entity_id: remote.livingroom
+#               command:
+#                 - PowerToggle
+#               device: "DYSON"
+
+toggle_heat_dyson:
+        alias: HeatCool Toggle Dyson
+        sequence:
+          - service: remote.send_command
+            data:
+              entity_id: remote.livingroom
+              command:
+                - Cool
+              device: "DYSON"

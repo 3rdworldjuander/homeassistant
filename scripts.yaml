@@ -1,0 +1,74 @@
+turn_on_watch_apple_tv_activity:
+        alias: Turn On Watch Apple TV
+        sequence:
+          - service: remote.turn_on
+            entity_id: remote.livingroom
+            data:
+              activity: "Watch Apple TV"
+
+turn_off_watch_apple_tv_activity:
+        alias: Turn Off Watch Apple TV
+        sequence:
+          - service: remote.turn_off
+            entity_id: remote.livingroom
+            data:
+              activity: "Watch Apple TV"
+
+
+toggle_power_dyson:
+        alias: Power Toggle Dyson
+        sequence:
+          - service: remote.send_command
+            data:
+              entity_id: remote.livingroom
+              command:
+                - PowerToggle
+              device: "DYSON"
+
+toggle_heat_dyson:
+        alias: Heat-Cool Toggle Dyson
+        sequence:
+          - service: remote.send_command
+            data:
+              entity_id: remote.livingroom
+              command:
+                - Cool
+              device: "DYSON"
+
+toggle_oscillate_dyson:
+        alias: Oscillate Toggle Dyson
+        sequence:
+          - service: remote.send_command
+            data:
+              entity_id: remote.livingroom
+              command:
+                - Oscillate
+              device: "DYSON"
+
+temp_up_dyson:
+        alias: Dyson Temp Hotter
+        sequence:
+          - service: remote.send_command
+            data:
+              entity_id: remote.livingroom
+              command:
+                - TempHotter
+              device: "DYSON"
+
+temp_down_dyson:
+        alias: Dyson Temp Cooler
+        sequence:
+          - service: remote.send_command
+            data:
+              entity_id: remote.livingroom
+              command:
+                - TempCooler
+              device: "DYSON"
+
+test_camera_stream:
+        alias: Test Camera Stream  
+        sequence: 
+          - service: camera.play_stream 
+            data: 
+              entity_id: camera.nursery_cam 
+              media_player: media_player.living_room

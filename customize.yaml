@@ -1,0 +1,2 @@
+sensor.temperature_rpi_th_sens_1:
+  friendly_name: Bedroom Temperature
