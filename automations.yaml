@@ -1,9 +1,8 @@
 []
-  automation:
-    trigger:
-      platform: sun
-      event: sunrise
-      offset: "-00:15:00"
-    action:
-      service: light.turn_on
-      entity_id: light.right_nightstand
+trigger:
+  platform: sun
+  event: sunrise
+  offset: "-00:15:00"
+action:
+  service: light.turn_on
+  entity_id: light.right_nightstand
