@@ -1,4 +1,4 @@
-[]
+[
 automation:
   trigger:
     platform: sun
@@ -10,3 +10,4 @@ automation:
     data:
       # 900 seconds = 15 minutes
       transition: 900
+]
