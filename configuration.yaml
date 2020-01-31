@@ -1,0 +1,123 @@
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+# http:
+#   base_url: example.duckdns.org:8123
+
+# Users 
+person: 
+  - name: Maria Campo 
+    id: 3da9d244c1284d7fabb083efe76cd6b1
+    device_trackers: 
+      - device_tracker.mcs_iphone
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+# CloudMQTT
+mqtt:
+  broker: tailor.cloudmqtt.com
+  port: 10037
+  username: !secret cloudmqtt_user
+  password: !secret cloudmqtt_password
+
+# Subscribe to CloudMQTT
+# Example configuration.yaml entry
+sensor:
+# rpi-th-sens-1
+  - platform: mqtt
+    name: "Temperature"
+    state_topic: "rpi-th-sens-1"
+    unit_of_measurement: '°F'
+    value_template: "{{ value_json.temperature }}"
+  - platform: mqtt
+    name: "Humidity"
+    state_topic: "rpi-th-sens-1"
+    unit_of_measurement: '%'
+    value_template: "{{ value_json.humidity }}"
+
+# rpi-th-sens-2
+  - platform: mqtt
+    name: "Temperature"
+    state_topic: "rpi-th-sens-2"
+    unit_of_measurement: '°F'
+    value_template: "{{ value_json.temperature }}"
+  - platform: mqtt
+    name: "Humidity"
+    state_topic: "rpi-th-sens-2"
+    unit_of_measurement: '%'
+    value_template: "{{ value_json.humidity }}"
+
+
+
+
+
+# Apple TV tvOS 13
+apple_tv_mrp:
+  - name: Living Room
+    host: 192.168.0.6
+    port: 49152
+    #    login_id: C8:69:CD:86:6F:FF
+    # MRP Credentials
+    credentials: ea6443b8f992b0810b166dd0f96afa6ade74a9e945dbb3220432c48aa4ef6bf6:36635f7a28f7ed7356117b17630a308abf2b76f8ecbd0a00e7431276c32adedc:33646538333764332d653235622d343132352d383139332d643866366662646630633330:39343234313534632d613566632d343734352d613865362d613162313864323332346662
+    # Airplay Credentials
+    # credentials : 0EFF33A313B508E6:304CEF49275C11DBD1E8E2F203B39F27BBAD3F10829922CEDC947AB432CB78DC
+# mrp/pyatv $ atvremote scan
+# Scan Results
+# ========================================
+#        Name: Living Room
+#     Address: 192.168.0.6
+# Identifiers:
+#  - C8:69:CD:86:6F:FF
+#  - F2DBAE98-31C7-4D39-B743-5CE6991EDDD4
+# Services:
+#  - Protocol: MRP, Port: 49152, Credentials: None
+#  - Protocol: AirPlay, Port: 7000, Credentials: None
+#
+#        Name: RX-V479 DA9C91
+#     Address: 192.168.0.3
+# Identifiers:
+#  - 88:C2:55:26:D2:AE
+# Services:
+#  - Protocol: AirPlay, Port: 5000, Credentials: None
+
+# Pairing seems to have succeeded, yey!
+# You may now use these credentials: ea6443b8f992b0810b166dd0f96afa6ade74a9e945dbb3220432c48aa4ef6bf6:5a3ab62de4e0584208bbb0a8f827a9e1faf88ef9f25a2aebe79db75689be4b74:33646538333764332d653235622d343132352d383139332d643866366662646630633330:31616335643630352d363062382d346165642d386630382d303939666630363064626562
+
+# Discovery
+discovery:
+   enable:
+
+# Logitech Harmony Configuration
+remote:
+  - platform: harmony
+    name: livingroom
+    host: 192.168.0.11
+
+# Xiaomi Vacuum
+#vacuum:
+#  - platform: xiaomi_miio
+#    host: 192.168.0.13
+#    token: YOUR_TOKEN
+
+# Smart Life
+tuya:
+  username: !secret tuya_user
+  password: !secret tuya_password
+  country_code: "1"
+  platform: smart_life
+
+# Camera Configuration
+stream:
+camera:
+  - platform: ffmpeg
+    input: !secret wyze_url
+    name: Nursery Cam
