@@ -13,8 +13,8 @@
   initial_state: 'off'
   condition:
      - condition: time
-       after: '21:00:00'
-       before: '07:00:00'
+       after: '07:00:00'
+       before: '21:00:00'
      # - condition: template
      #   value_template: '{{ states("sensor.humidity") | int < 30 }}'
      - condition: state
@@ -22,7 +22,7 @@
        state: 'off'
   trigger:
    - platform: template
-     value_template: '{{ states("sensor.humidity") | int < 35 }}'
+     value_template: '{{ states("sensor.humidity") | int < 48 }}'
   action:
     service: switch.turn_on
     entity_id: switch.01200405ecfabc0f6151
@@ -36,7 +36,7 @@
       state: 'on'
   trigger:
     platform: template
-    value_template: '{{ states("sensor.humidity") | int >= 40 }}'
+    value_template: '{{ states("sensor.humidity") | int >= 50 }}'
   action:
     service: switch.turn_off
     entity_id: switch.01200405ecfabc0f6151
