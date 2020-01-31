@@ -65,33 +65,11 @@ apple_tv_mrp:
   - name: Living Room
     host: 192.168.0.6
     port: 49152
-    #    login_id: C8:69:CD:86:6F:FF
-    # MRP Credentials
+
     credentials: !secret apple_tv_mrp_cred
     # Airplay Credentials
-    # credentials : 0EFF33A313B508E6:304CEF49275C11DBD1E8E2F203B39F27BBAD3F10829922CEDC947AB432CB78DC
-# mrp/pyatv $ atvremote scan
-# Scan Results
-# ========================================
-#        Name: Living Room
-#     Address: 192.168.0.6
-# Identifiers:
-#  - C8:69:CD:86:6F:FF
-#  - F2DBAE98-31C7-4D39-B743-5CE6991EDDD4
-# Services:
-#  - Protocol: MRP, Port: 49152, Credentials: None
-#  - Protocol: AirPlay, Port: 7000, Credentials: None
-#
-#        Name: RX-V479 DA9C91
-#     Address: 192.168.0.3
-# Identifiers:
-#  - 88:C2:55:26:D2:AE
-# Services:
-#  - Protocol: AirPlay, Port: 5000, Credentials: None
-
-# Pairing seems to have succeeded, yey!
-# You may now use these credentials: ea6443b8f992b0810b166dd0f96afa6ade74a9e945dbb3220432c48aa4ef6bf6:5a3ab62de4e0584208bbb0a8f827a9e1faf88ef9f25a2aebe79db75689be4b74:33646538333764332d653235622d343132352d383139332d643866366662646630633330:31616335643630352d363062382d346165642d386630382d303939666630363064626562
-
+    # credentials : !secret
+    
 # Discovery
 discovery:
    enable:
