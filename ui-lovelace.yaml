@@ -1,3 +1,5 @@
 resources:
   - url: /community/lovelace-xiaomi-vacuum-card/xiaomi-vacuum-card.js
     type: module
+  - type: custom:xiaomi-vacuum-card
+    entity: vacuum.xiaomi_vacuum_cleaner
