@@ -1,0 +1,3 @@
+resources:
+  - url: /local/xiaomi-vacuum-card.js?v=3.0.1
+    type: module
