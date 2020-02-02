@@ -6,6 +6,10 @@ default_config:
 # http:
 #   base_url: example.duckdns.org:8123
 
+# Lovelace
+lovelace:
+  mode: yaml
+
 # Users
 person:
   - name: Maria Campo
