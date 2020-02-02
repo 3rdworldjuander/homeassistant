@@ -34,24 +34,24 @@ mqtt:
 sensor:
 # rpi-th-sens-1
   - platform: mqtt
-    name: "Temperature"
+    name: "Bedroom Temperature"
     state_topic: "rpi-th-sens-1"
     unit_of_measurement: '°F'
     value_template: "{{ value_json.temperature }}"
   - platform: mqtt
-    name: "Humidity"
+    name: "Bedroom Humidity"
     state_topic: "rpi-th-sens-1"
     unit_of_measurement: '%'
     value_template: "{{ value_json.humidity }}"
 
 # rpi-th-sens-2
   - platform: mqtt
-    name: "Temperature"
+    name: "Nursery Temperature"
     state_topic: "rpi-th-sens-2"
     unit_of_measurement: '°F'
     value_template: "{{ value_json.temperature }}"
   - platform: mqtt
-    name: "Humidity"
+    name: "Nursery Humidity"
     state_topic: "rpi-th-sens-2"
     unit_of_measurement: '%'
     value_template: "{{ value_json.humidity }}"
@@ -69,7 +69,7 @@ apple_tv_mrp:
     credentials: !secret apple_tv_mrp_cred
     # Airplay Credentials
     # credentials : !secret
-    
+
 # Discovery
 discovery:
    enable:
