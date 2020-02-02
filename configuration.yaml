@@ -76,7 +76,7 @@ remote:
     name: livingroom
     host: 192.168.0.11
 
-Xiaomi Vacuum
+# Xiaomi Vacuum
 vacuum:
  - platform: xiaomi_miio
    host: 192.168.0.13
