@@ -56,10 +56,6 @@ sensor:
     unit_of_measurement: '%'
     value_template: "{{ value_json.humidity }}"
 
-
-
-
-
 # Apple TV tvOS 13
 apple_tv_mrp:
   - name: Living Room
@@ -80,11 +76,12 @@ remote:
     name: livingroom
     host: 192.168.0.11
 
-# Xiaomi Vacuum
-#vacuum:
-#  - platform: xiaomi_miio
-#    host: 192.168.0.13
-#    token: YOUR_TOKEN
+Xiaomi Vacuum
+vacuum:
+ - platform: xiaomi_miio
+   host: 192.168.0.13
+   token: !secret xiaomi_token
+   name: Inday Mi
 
 # Smart Life
 tuya:
