@@ -96,3 +96,7 @@ camera:
   - platform: ffmpeg
     input: !secret wyze_url
     name: Nursery Cam
+
+# Vacuum card
+- type: custom:xiaomi-vacuum-card
+  entity: vacuum.xiaomi_vacuum_cleaner
