@@ -13,8 +13,8 @@
   initial_state: 'off'
   condition:
      - condition: time
-       after: '07:00:00'
-       before: '21:00:00'
+       after: '20:00:00'
+       before: '07:00:00'
      # - condition: template
      #   value_template: '{{ states("sensor.humidity") | int < 30 }}'
      - condition: state
