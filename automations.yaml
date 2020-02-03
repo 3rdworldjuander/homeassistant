@@ -10,17 +10,24 @@
 # Bedroom lights at night
 - id: night_bedroom_lighting
   alias: Bedroom night mode
-  initial_state: 'off'
-  condition:
-     - condition: state
-       entity_id: 'device_tracker.bogart'
-       state: 'home'
+  initial_state: True
+  hide_entity: False
+  # condition:
+  #   condition: or
+  #   conditions:
+  #     - condition: state
+  #       entity_id: 'device_tracker.bogart'
+  #       state: 'home'
+  #     - condition: state
+  #       entity_id: 'device_tracker.mcs_iphone'
+  #       state: 'home'
   trigger:
-    platform: time
-    at: "20:38:00"
+    - platform: time
+      at: "18:05:00"
   action:
-    service: switch.turn_on
-    entity_id: group.bedroom_lights
+    entity_id: bedroom_lights
+    service: homeassistant.turn_on
+
 
 ## Humidifier
 - id: turn_on_humidifier

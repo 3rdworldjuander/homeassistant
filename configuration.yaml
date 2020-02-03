@@ -100,3 +100,21 @@ camera:
   - platform: ffmpeg
     input: !secret wyze_url
     name: Nursery Cam
+
+# # Example configuration.yaml entry
+# group:
+#   bedroom:
+#     name: bedroom
+#     entities:
+#       - light.left_nightstand
+#       - light.right_nightstand
+  # climate:
+  #   name: Climate
+  #   entities:
+  #     - light.left_nightstand
+  #     - light.right_nightstand
+  # awesome_people:
+  #   name: Awesome People
+  #   entities:
+  #     - device_tracker.dad_smith
+  #     - device_tracker.mom_smith

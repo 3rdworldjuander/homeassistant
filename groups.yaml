@@ -1,6 +1,11 @@
-group:
-  bedroom:
-    name: Bedroom lights
-    entities:
-      - light.left_nightstand
-      - light.right_nightstand
+bedroom_lights:
+  name: nightstands
+  entities:
+    - light.left_nightstand
+    - light.right_nightstand
+
+nursery_lights:
+  name: nursery
+  entities:
+    - light.tradfri_bulb_7
+    - light.tradfri_bulb_6
