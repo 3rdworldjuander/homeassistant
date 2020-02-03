@@ -1,11 +1,26 @@
-- alias: "good morning"
+# - alias: "good morning"
+#   trigger:
+#     platform: sun
+#     event: sunrise
+#     offset: "-00:15:00"
+#   action:
+#     service: light.turn_on
+#     entity_id: light.right_nightstand
+
+# Bedroom lights at night
+- id: night_bedroom_lighting
+  alias: Bedroom night mode
+  initial_state: 'off'
+  condition:
+     - condition: state
+       entity_id: 'device_tracker.bogart'
+       state: 'home'
   trigger:
-    platform: sun
-    event: sunrise
-    offset: "-00:15:00"
+    platform: time
+    at: "20:30:00"
   action:
-    service: light.turn_on
-    entity_id: light.right_nightstand
+    service: switch.turn_on
+    entity_id: group.bedroom_lights
 
 ## Humidifier
 - id: turn_on_humidifier

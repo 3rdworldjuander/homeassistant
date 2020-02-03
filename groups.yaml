@@ -1,0 +1,6 @@
+group:
+  bedroom:
+    name: Bedroom lights
+    entities:
+      - light.left_nightstand
+      - light.right_nightstand
