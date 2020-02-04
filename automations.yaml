@@ -9,9 +9,9 @@
     entity_id: light.right_nightstand
 
 ## Humidifier
-- id: turn_on_humidifier
-  alias: Turn on humidifier
-  initial_state: 'off'
+# - id: turn_on_humidifier
+- alias: "Turn on humidifier"
+  # initial_state: 'off'
   # condition:
   #    - condition: time
   #      after: '20:00:00'
@@ -22,12 +22,12 @@
       state: 'below_horizon'
      # - condition: template
      #   value_template: '{{ states("sensor.humidity") | int < 30 }}'
-   - condition: state
-     entity_id: switch.01200405ecfabc0f6151
-     state: 'off'
+   # - condition: state
+   #   entity_id: switch.01200405ecfabc0f6151
+   #   state: 'off'
   trigger:
-   - platform: template
-     value_template: '{{ states("sensor.bedroom_humidity") | int < 48 }}'
+    - platform: template
+      value_template: '{{ states("sensor.bedroom_humidity") | int < 48 }}'
   action:
     service: switch.turn_on
     entity_id: switch.01200405ecfabc0f6151
