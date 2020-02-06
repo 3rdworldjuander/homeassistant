@@ -3,8 +3,8 @@
   trigger:
     - platform: state
       entity_id: sun.sun
-      state: 'below_horizon'
-      # to: 'above_horizon'
+      from: 'below_horizon'
+      to: 'above_horizon'
   condition:
     - condition: state
       entity_id: 'device_tracker.bogart'
@@ -51,16 +51,16 @@
 #     service: homeassistant.turn_on
 #     entity_id: switch.01200405ecfabc0f6151
 #
-# - id: turn_off_humidifier
-#   alias: Turn off humidifier
-#   initial_state: 'off'
-#   condition:
-#     - condition: state
-#       entity_id: switch.01200405ecfabc0f6151
-#       state: 'on'
-#   trigger:
-#     platform: template
-#     value_template: '{{ states("sensor.bedroom_humidity") | int >= 50 }}'
-#   action:
-#     service: switch.turn_off
-#     entity_id: switch.01200405ecfabc0f6151
+- id: turn_off_humidifier
+  alias: Turn off humidifier
+  # initial_state: 'off'
+  condition:
+    - condition: state
+      entity_id: switch.01200405ecfabc0f6151
+      state: 'on'
+  trigger:
+    platform: template
+    value_template: '{{ states("sensor.bedroom_humidity") | int >= 50 }}'
+  action:
+    service: switch.turn_off
+    entity_id: switch.01200405ecfabc0f6151
