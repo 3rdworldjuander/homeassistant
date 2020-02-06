@@ -1,9 +1,18 @@
 - id: test
   alias: testing
   trigger:
-    platform: time
-    # Military time format. This trigger will fire at 3:32 PM
-    at: "22:14:00"
+    platform: state
+    entity_id: sun.sun
+    state: 'below_horizon'
+  condition:
+  condition: and
+  conditions:
+    - condition: state
+      entity_id: 'device_tracker.bogart'
+      state: 'home'
+    - condition: numeric_state
+      entity_id: 'sensor.bedroom_humidity'
+      below: 48
   action:
     service: homeassistant.turn_on
     entity_id: switch.01200405ecfabc0f6151
