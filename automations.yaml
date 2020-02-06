@@ -3,8 +3,8 @@
   trigger:
     - platform: state
       entity_id: sun.sun
-      from: 'below_horizon'
-      to: 'above_horizon'
+      state: 'below_horizon'
+      # to: 'above_horizon'
   condition:
     - condition: state
       entity_id: 'device_tracker.bogart'
