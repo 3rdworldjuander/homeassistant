@@ -1,3 +1,13 @@
+automation:
+  trigger:
+    platform: time
+    # Military time format. This trigger will fire at 3:32 PM
+    at: "22:13:00"
+  action:
+    service: homeassistant.turn_on
+    entity_id: switch.01200405ecfabc0f6151
+
+
 # - id: day_lights
 #   alias: good morning
 #   trigger:
