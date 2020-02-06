@@ -1,47 +1,47 @@
-- id: day_lights
-  alias: good morning
-  trigger:
-    platform: sun
-    event: sunrise
-    offset: "-00:15:00"
-  action:
-    service: light.turn_on
-    entity_id: light.right_nightstand
-
-## Humidifier
-# - id: turn_on_humidifier
-- alias: "Turn on humidifier"
-  # initial_state: 'off'
-  # condition:
-  #    - condition: time
-  #      after: '20:00:00'
-  #      before: '24:00:00'
-  condition:
-    - condition: state
-      entity_id: sun.sun
-      state: 'below_horizon'
-     # - condition: template
-     #   value_template: '{{ states("sensor.humidity") | int < 30 }}'
-   # - condition: state
-   #   entity_id: switch.01200405ecfabc0f6151
-   #   state: 'off'
-  trigger:
-    - platform: template
-      value_template: '{{ states("sensor.bedroom_humidity") | int < 48 }}'
-  action:
-    service: homeassistant.turn_on
-    entity_id: switch.01200405ecfabc0f6151
-
-- id: turn_off_humidifier
-  alias: Turn off humidifier
-  initial_state: 'off'
-  condition:
-    - condition: state
-      entity_id: switch.01200405ecfabc0f6151
-      state: 'on'
-  trigger:
-    platform: template
-    value_template: '{{ states("sensor.bedroom_humidity") | int >= 50 }}'
-  action:
-    service: switch.turn_off
-    entity_id: switch.01200405ecfabc0f6151
+# - id: day_lights
+#   alias: good morning
+#   trigger:
+#     platform: sun
+#     event: sunrise
+#     offset: "-00:15:00"
+#   action:
+#     service: light.turn_on
+#     entity_id: light.right_nightstand
+#
+# ## Humidifier
+# # - id: turn_on_humidifier
+# - alias: "Turn on humidifier"
+#   # initial_state: 'off'
+#   # condition:
+#   #    - condition: time
+#   #      after: '20:00:00'
+#   #      before: '24:00:00'
+#   condition:
+#     - condition: state
+#       entity_id: sun.sun
+#       state: 'below_horizon'
+#      # - condition: template
+#      #   value_template: '{{ states("sensor.humidity") | int < 30 }}'
+#    # - condition: state
+#    #   entity_id: switch.01200405ecfabc0f6151
+#    #   state: 'off'
+#   trigger:
+#     - platform: template
+#       value_template: '{{ states("sensor.bedroom_humidity") | int < 48 }}'
+#   action:
+#     service: homeassistant.turn_on
+#     entity_id: switch.01200405ecfabc0f6151
+#
+# - id: turn_off_humidifier
+#   alias: Turn off humidifier
+#   initial_state: 'off'
+#   condition:
+#     - condition: state
+#       entity_id: switch.01200405ecfabc0f6151
+#       state: 'on'
+#   trigger:
+#     platform: template
+#     value_template: '{{ states("sensor.bedroom_humidity") | int >= 50 }}'
+#   action:
+#     service: switch.turn_off
+#     entity_id: switch.01200405ecfabc0f6151
