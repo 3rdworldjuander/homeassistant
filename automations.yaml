@@ -3,7 +3,8 @@
   trigger:
     platform: state
     entity_id: sun.sun
-    state: 'below_horizon'
+    from: 'below_horizon'
+    to: 'above_horizon'
   condition:
   condition: and
   conditions:
