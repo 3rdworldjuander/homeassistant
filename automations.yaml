@@ -64,3 +64,21 @@
   action:
     service: switch.turn_off
     entity_id: switch.01200405ecfabc0f6151
+
+
+# Example automations.yaml entry
+- id: basic  # <-- Required for editor to work, for automations created with the editor the id will be automatically generated.
+  alias: Hello world
+  trigger:
+  - platform: state
+    entity_id: sun.sun
+    from: above_horizon
+    to: below_horizon
+  condition:
+  - condition: numeric_state
+    entity_id: sensor.nursery_humidity
+    above: 37
+    below: 45
+    value_template: '{{ float(state.state) + 2 }}'
+  action:
+  - service: switch.01200405ecfabc0f6a2d
